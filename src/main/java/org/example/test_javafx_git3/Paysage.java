@@ -15,7 +15,7 @@ public class Paysage extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Paysage JavaFX");
+        primaryStage.setTitle("Paysage avec Dromadaire");
 
         Pane root = new Pane();
         Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
@@ -28,11 +28,18 @@ public class Paysage extends Application {
         Rectangle sol = new Rectangle(SCENE_WIDTH, SCENE_HEIGHT / 2, Color.GREEN);
         sol.relocate(0, SCENE_HEIGHT / 2);
 
-        // Dessiner le soleil
+        // Dessiner le soleil (cercle jaune)
         Circle soleil = new Circle(50, Color.YELLOW);
         soleil.relocate(100, 100);
 
-        root.getChildren().addAll(ciel, sol, soleil);
+        // Dessiner le dromadaire (rectangle marron pour le corps, cercle pour la tête)
+        Rectangle corpsDromadaire = new Rectangle(80, 40, Color.BROWN);
+        corpsDromadaire.relocate(400, SCENE_HEIGHT / 2 - 40);
+
+        Circle teteDromadaire = new Circle(20, Color.BROWN);
+        teteDromadaire.relocate(440, SCENE_HEIGHT / 2 - 60);
+
+        root.getChildren().addAll(ciel, sol, soleil, corpsDromadaire, teteDromadaire);
 
         primaryStage.setScene(scene);
         primaryStage.show();
